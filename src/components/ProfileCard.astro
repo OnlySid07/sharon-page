@@ -1,0 +1,95 @@
+---
+const profile = {
+  nombre: "Kyrie.wz",
+  avatar: "/perfil.jpg",
+  redes: [
+    { icon: "/ds.svg", url: "https://discord.gg/FKWWdEwY" },
+    { icon: "/ig.svg", url: "https://www.instagram.com/onlysharonrios.m?igsh=Z3dteGo5ODdrcm5p&utm_source=qr" },
+    { icon: "/tiktok.svg", url: "https://www.tiktok.com/@sharonrios.m?_t=ZM-8vSTv1Zj9mB&_r=1" },
+    { icon: "/spotify.svg", url: "https://open.spotify.com/user/31wucmkonuelejnf3l6sv3ig5zsy?si=OLw-EIkDSmqgA8-PmGggVA"},
+    
+    // agrega más aquí
+  ],
+};
+---
+
+<div class="glass-card">
+  <img src={profile.avatar} alt="avatar" class="avatar" />
+  <h1 style="font-size: 2rem ;">{profile.nombre}</h1>
+
+  <div class="redes">
+    {profile.redes.map((r) => (
+      <a href={r.url} target="_blank">
+        <img src={r.icon} alt="icon" />
+      </a>
+    ))}
+  </div>
+
+  <span class="visitas">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+       viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;">
+    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zm-8 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+  </svg>
+  50
+</span>
+
+</div>
+
+
+
+<style>
+  .glass-card {
+    background: rgba(0, 0, 0, 0.418);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 500px;
+    margin: auto;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    
+  }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    
+  }
+
+  .redes img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+    transition: 0.2s;
+    transition: 0.2s;
+    fill: white; 
+    filter: drop-shadow(0 0 20px white); 
+    overflow: visible;
+  }
+
+  .redes img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .visitas {
+    font-size: 1rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 1rem;
+    text-align: initial;
+  }
+</style>

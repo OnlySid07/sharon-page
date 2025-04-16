@@ -1,0 +1,57 @@
+---
+// Componente de inicio con música activada tras clic
+---
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        .overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(8px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          color: white;
+          font-size: 3rem;
+          font-family: "Fira Sans", sans-serif;
+          font-weight: 500;
+          cursor: pointer;
+          transition: opacity 0.4s ease;
+        }
+      
+        .overlay.hidden {
+          opacity: 0;
+          pointer-events: none;
+        }
+      
+        .overlay-text {
+          padding: 1.5rem 2rem;
+          /* background-color: rgba(255, 255, 255, 0.05); */
+          /* border: 1px solid white; */
+          border-radius: 1rem;
+          /* backdrop-filter: blur(4px); */
+          text-align: center;
+        }
+      </style>
+</head>
+
+  
+  <audio id="bg-music" src="/music.mp3" loop></audio>
+  
+  <div id="music-overlay" class="overlay">
+    <div class="overlay-text">Tocame perra</div>
+  </div>
+  
+  <script type="module">
+    const audio = document.getElementById('bg-music');
+    const overlay = document.getElementById('music-overlay');
+  
+    overlay.addEventListener('click', () => {
+      audio.play();
+      overlay.classList.add('hidden');
+    });
+  </script>
+  
